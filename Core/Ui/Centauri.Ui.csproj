@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard1.5</TargetFramework>
-    <RootNamespace>Centauri.Rendering.Ui</RootNamespace>
+    <RootNamespace>Centauri.Ui</RootNamespace>
   </PropertyGroup>
 
 </Project>

@@ -7,49 +7,49 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{0479EDE2-2
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rendering", "Rendering", "{6F08FDD2-AAC7-4298-932D-99F7705E6853}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Core\Rendering\Api\Api.csproj", "{ED8523C5-1374-4B6B-A913-C4F538F124E2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Centauri.Rendering.Api", "Core\Rendering\Api\Centauri.Rendering.Api.csproj", "{ED8523C5-1374-4B6B-A913-C4F538F124E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mock", "Core\Rendering\Mock\Mock.csproj", "{000235BB-3638-4DE8-9096-9CAE5707CF63}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Centauri.Rendering.Mock", "Core\Rendering\Mock\Centauri.Rendering.Mock.csproj", "{000235BB-3638-4DE8-9096-9CAE5707CF63}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectFB", "Core\Rendering\DirectFB\DirectFB.csproj", "{A85CCA62-0047-430A-9816-84591A5879AD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Centauri.Rendering.DirectFB", "Core\Rendering\DirectFB\Centauri.Rendering.DirectFB.csproj", "{A85CCA62-0047-430A-9816-84591A5879AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenGL", "Core\Rendering\OpenGL\OpenGL.csproj", "{F5FDCCE2-2D84-4EC0-BD0B-F51ABD102F4D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Centauri.Rendering.OpenGL", "Core\Rendering\OpenGL\Centauri.Rendering.OpenGL.csproj", "{F5FDCCE2-2D84-4EC0-BD0B-F51ABD102F4D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinForms", "Core\Rendering\WinForms\WinForms.csproj", "{4406E9D7-1B4C-4C0F-B8B3-C93273D82336}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Centauri.Rendering.WinForms", "Core\Rendering\WinForms\Centauri.Rendering.WinForms.csproj", "{4406E9D7-1B4C-4C0F-B8B3-C93273D82336}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Fs", "Fs", "{BD968E4C-87A6-41B4-9523-A5A99D6CB3B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Core\Fs\Api\Api.csproj", "{CFDEEB0F-7A43-42C7-92F0-B2BD3339BBE3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Centauri.Fs.Api", "Core\Fs\Api\Centauri.Fs.Api.csproj", "{CFDEEB0F-7A43-42C7-92F0-B2BD3339BBE3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mock", "Core\Fs\Mock\Mock.csproj", "{61FF9A33-A9E7-4335-8E49-AB437A822AD6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Centauri.Fs.Mock", "Core\Fs\Mock\Centauri.Fs.Mock.csproj", "{61FF9A33-A9E7-4335-8E49-AB437A822AD6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dedicated", "Core\Fs\Dedicated\Dedicated.csproj", "{B64FB2D3-84B3-49DE-A540-54D765AA9AE7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Centauri.Fs.Dedicated", "Core\Fs\Dedicated\Centauri.Fs.Dedicated.csproj", "{B64FB2D3-84B3-49DE-A540-54D765AA9AE7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Core\Fs\Shared\Shared.csproj", "{570829B5-3C81-4F44-A7B8-EA0E4FE68FE5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Centauri.Fs.Shared", "Core\Fs\Shared\Centauri.Fs.Shared.csproj", "{570829B5-3C81-4F44-A7B8-EA0E4FE68FE5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ui", "Core\Ui\Ui.csproj", "{00E0F07F-3BAB-4B9A-B056-B1699D1C0F1D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Centauri.Ui", "Core\Ui\Centauri.Ui.csproj", "{00E0F07F-3BAB-4B9A-B056-B1699D1C0F1D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Platform", "Platform", "{3697564A-34C5-487D-9866-05D144E520B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Core\Platform\Shared\Shared.csproj", "{8AFAE9DA-5D9B-4AD4-9FC3-9D8C647371AF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Centauri.Platform.Shared", "Core\Platform\Shared\Centauri.Platform.Shared.csproj", "{8AFAE9DA-5D9B-4AD4-9FC3-9D8C647371AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dedicated", "Core\Platform\Dedicated\Dedicated.csproj", "{FEE54C46-3D7D-474E-94B6-837C8910E791}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Centauri.Platform.Dedicated", "Core\Platform\Dedicated\Centauri.Platform.Dedicated.csproj", "{FEE54C46-3D7D-474E-94B6-837C8910E791}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{9BCDA81E-C3CB-4572-9BF4-B4413D293145}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Core\Plugins\Api\Api.csproj", "{9BB5742D-7829-45C1-A83B-628E51961ECF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Centauri.Plugins.Api", "Core\Plugins\Api\Centauri.Plugins.Api.csproj", "{9BB5742D-7829-45C1-A83B-628E51961ECF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Welcome", "Core\Plugins\Welcome\Welcome.csproj", "{F82D0DD6-A757-4856-8143-D5AC8E45348A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Centauri.Plugins.Welcome", "Core\Plugins\Welcome\Centauri.Plugins.Welcome.csproj", "{F82D0DD6-A757-4856-8143-D5AC8E45348A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Login", "Core\Plugins\Login\Login.csproj", "{E7BD0372-0418-4EB4-B196-B4B6E94A75DF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Centauri.Plugins.Login", "Core\Plugins\Login\Centauri.Plugins.Login.csproj", "{E7BD0372-0418-4EB4-B196-B4B6E94A75DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Splash", "Core\Plugins\Splash\Splash.csproj", "{698BEE51-7805-4996-A657-262514017599}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Centauri.Plugins.Splash", "Core\Plugins\Splash\Centauri.Plugins.Splash.csproj", "{698BEE51-7805-4996-A657-262514017599}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IoC", "IoC", "{1E0E1908-1F7B-43E1-B229-688CED0EFBAA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Core\IoC\Api\Api.csproj", "{5826015C-9F8A-4D92-A383-E5F37BB5D303}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Centauri.IoC.Api", "Core\IoC\Api\Centauri.IoC.Api.csproj", "{5826015C-9F8A-4D92-A383-E5F37BB5D303}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework", "Core\IoC\Framework\Framework.csproj", "{798CE974-6DC5-4130-85EF-6D8D39BE3FE7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Centauri.IoC.Framework", "Core\IoC\Framework\Centauri.IoC.Framework.csproj", "{798CE974-6DC5-4130-85EF-6D8D39BE3FE7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
