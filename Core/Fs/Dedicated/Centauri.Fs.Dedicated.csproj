@@ -5,4 +5,8 @@
     <RootNamespace>Centauri.Fs.Dedicated</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\IoC\Api\Centauri.IoC.Api.csproj" />
+    <ProjectReference Include="..\Api\Centauri.Fs.Api.csproj" />
+  </ItemGroup>
 </Project>

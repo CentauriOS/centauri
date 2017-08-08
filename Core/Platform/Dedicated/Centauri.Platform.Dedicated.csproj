@@ -6,4 +6,15 @@
     <RootNamespace>Centauri.Platform.Dedicated</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Fs\Api\Centauri.Fs.Api.csproj" />
+    <ProjectReference Include="..\..\Fs\Dedicated\Centauri.Fs.Dedicated.csproj" />
+    <ProjectReference Include="..\..\IoC\Api\Centauri.IoC.Api.csproj" />
+    <ProjectReference Include="..\..\Plugins\Login\Centauri.Plugins.Login.csproj" />
+    <ProjectReference Include="..\..\Plugins\Splash\Centauri.Plugins.Splash.csproj" />
+    <ProjectReference Include="..\..\Plugins\Welcome\Centauri.Plugins.Welcome.csproj" />
+    <ProjectReference Include="..\..\Rendering\Api\Centauri.Rendering.Api.csproj" />
+    <ProjectReference Include="..\..\Rendering\DirectFB\Centauri.Rendering.DirectFB.csproj" />
+    <ProjectReference Include="..\..\Ui\Centauri.Rendering.Ui.csproj" />
+  </ItemGroup>
 </Project>

@@ -5,4 +5,10 @@
     <RootNamespace>Centauri.Plugins.Splash</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Fs\Api\Centauri.Fs.Api.csproj" />
+    <ProjectReference Include="..\..\IoC\Api\Centauri.IoC.Api.csproj" />
+    <ProjectReference Include="..\Api\Centauri.Plugins.Api.csproj" />
+    <ProjectReference Include="..\..\Rendering\Api\Centauri.Rendering.Api.csproj" />
+  </ItemGroup>
 </Project>
