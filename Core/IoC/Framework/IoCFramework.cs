@@ -10,16 +10,48 @@ using System.Runtime.CompilerServices;
 [assembly: InternalsVisibleTo(IoCFramework.DynamicAsmName)]
 
 namespace Centauri.IoC.Framework {
+    /// <summary>
+    /// The framework that allows for inversion of control and dependency
+    /// injection.
+    /// </summary>
     [Control]
     public class IoCFramework : IIoCFramework {
+        /// <summary>
+        /// The name of the dynamic assembly that is created with all of the
+        /// proxy classes.
+        /// </summary>
         internal const string DynamicAsmName = "Centauri Dynamic IoC";
+        /// <summary>
+        /// A list of all the assemblies that have been loaded into the
+        /// framework so far.
+        /// </summary>
         readonly List<Assembly> LoadedAssemblies;
+        /// <summary>
+        /// The assembly loading context.
+        /// </summary>
         readonly AssemblyLoader Loader;
+        /// <summary>
+        /// The controls that this framework is currently aware of.
+        /// </summary>
         readonly Dictionary<Type, ControlManager> Controls;
+        /// <summary>
+        /// The assembly builder for the dynamic proxies.
+        /// </summary>
         readonly AssemblyBuilder AsmBldr;
+        /// <summary>
+        /// The module builder for the dynamic proxies.
+        /// </summary>
         readonly ModuleBuilder ModBldr;
+        /// <summary>
+        /// The namespace that all of the dynamic proxies should reside in.
+        /// </summary>
         readonly string DynamicsNamespace;
 
+        /// <summary>
+        /// Emits an instruction to load an integer into the il bytecode.
+        /// </summary>
+        /// <param name="il">The il generator to emit to.</param>
+        /// <param name="val">The value to emit to the il.</param>
         void EmitLoadInt(ILGenerator il, int val) {
             switch (val) {
                 case -1:
@@ -58,6 +90,11 @@ namespace Centauri.IoC.Framework {
             }
         }
 
+        /// <summary>
+        /// Emits an instruction to load an argument into the il bytecode.
+        /// </summary>
+        /// <param name="il">The il generator to emit to.</param>
+        /// <param name="i">The index of the argument to load.</param>
         void EmitLoadArg(ILGenerator il, int i) {
             switch (i) {
                 case 0:
@@ -79,6 +116,15 @@ namespace Centauri.IoC.Framework {
             }
         }
 
+        /// <summary>
+        /// Discovers what needs to be proxied for a single control, then
+        /// generates a dynamic type the implements the interface to complete
+        /// the proxy.
+        /// </summary>
+        /// <returns>The newly generated proxy type.</returns>
+        /// <param name="manager">
+        /// The control that is requesting the proxy type.
+        /// </param>
         internal Type CreateProxy(ControlManager manager) {
             Type baseType = typeof(DynamicBase);
             TypeBuilder type = ModBldr.DefineType(string.Concat(DynamicsNamespace, manager.Interface.FullName), TypeAttributes.UnicodeClass, baseType, new[] {
@@ -178,6 +224,13 @@ namespace Centauri.IoC.Framework {
             return type.CreateTypeInfo().AsType();
         }
 
+        /// <summary>
+        /// Gets the singleton instance of a control class.
+        /// </summary>
+        /// <returns>The singleton instance.</returns>
+        /// <param name="type">
+        /// The interface that the return control needs to implement.
+        /// </param>
         internal object GetSingleton(Type type) {
             ControlManager manager;
             if (Controls.ContainsKey(type)) {
@@ -188,10 +241,24 @@ namespace Centauri.IoC.Framework {
             return manager.Singleton;
         }
 
+        /// <summary>
+        /// Gets the singleton instance of a control class.
+        /// </summary>
+        /// <returns>The singleton instance.</returns>
+        /// <typeparam name="T">
+        /// The interface that the return control needs to implement.
+        /// </typeparam>
         public T GetSingleton<T>() {
             return (T) GetSingleton(typeof(T));
         }
 
+        /// <summary>
+        /// Creates a new instance of a control class.
+        /// </summary>
+        /// <returns>The new instance.</returns>
+        /// <param name="type">
+        /// The interface that the return control needs to implement.
+        /// </param>
         internal object Create(Type type) {
             ControlManager manager;
             if (Controls.ContainsKey(type)) {
@@ -202,10 +269,22 @@ namespace Centauri.IoC.Framework {
             return manager.Create();
         }
 
+        /// <summary>
+        /// Creates a new instance of a control class.
+        /// </summary>
+        /// <returns>The new instance.</returns>
+        /// <typeparam name="T">
+        /// The interface that the return control needs to implement.
+        /// </typeparam>
         public T Create<T>() {
             return (T) Create(typeof(T));
         }
 
+        /// <summary>
+        /// Loads an assembly into the framework and discovers its control
+        /// implementations.
+        /// </summary>
+        /// <param name="asm">The assembly to load.</param>
         void LoadAssembly(Assembly asm) {
             foreach (Type asmType in asm.GetExportedTypes()) {
                 TypeInfo type = asmType.GetTypeInfo();
@@ -228,6 +307,14 @@ namespace Centauri.IoC.Framework {
             LoadedAssemblies.Add(asm);
         }
 
+        /// <summary>
+        /// Loads the framework, or optionally a single assembly into the
+        /// currently loaded framework.
+        /// </summary>
+        /// <param name="assembly">
+        /// An assembly to load, or <see cref="null" /> if the entire framework
+        /// should be loaded.
+        /// </param>
         public void Load(string assembly = null) {
             if (assembly == null) {
                 foreach (Assembly asm in Loader.LoadAll()) {
@@ -238,6 +325,9 @@ namespace Centauri.IoC.Framework {
             }
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="IoCFramework" /> class.
+        /// </summary>
         internal IoCFramework() {
             LoadedAssemblies = new List<Assembly>();
             Loader = new AssemblyLoader();
