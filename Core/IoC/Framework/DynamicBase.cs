@@ -23,7 +23,7 @@ namespace Centauri.IoC.Framework {
                 foreach (FieldInfo field in Real.GetType().GetTypeInfo().GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public)) {
                     InjectAttribute attr = field.GetCustomAttribute<InjectAttribute>();
                     if (attr != null) {
-                        field.SetValue(Real, Manager.Framework.Create(field.FieldType));
+                        field.SetValue(Real, Manager.Framework.GetSingleton(field.FieldType));
                     }
                 }
             }

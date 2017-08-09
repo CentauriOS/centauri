@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
+using Centauri.IoC.Api;
 
 namespace Centauri.IoC.Framework {
-    sealed class ControlManager {
+    class ControlManager {
         readonly List<ControlImplementation> Implementations;
         ConstructorInfo ProxyCtor;
+        object singleton;
         internal readonly IoCFramework Framework;
         internal readonly Type Interface;
         internal event Action ImplementationChanged;
@@ -13,8 +15,16 @@ namespace Centauri.IoC.Framework {
             get;
             private set;
         }
+        internal virtual object Singleton {
+            get {
+                if (singleton == null) {
+                    singleton = Create();
+                }
+                return singleton;
+            }
+        }
 
-        internal object Create() {
+        internal virtual object Create() {
             if (ProxyCtor == null) {
                 ProxyCtor = Framework.CreateProxy(this).GetTypeInfo().GetConstructor(new [] {
                     typeof(ControlManager)
@@ -25,7 +35,7 @@ namespace Centauri.IoC.Framework {
             });
         }
 
-        internal void Add(ControlImplementation impl) {
+        internal virtual void Add(ControlImplementation impl) {
             Implementations.Add(impl);
             int weight = int.MinValue;
             ControlImplementation heaviest = null;
@@ -42,10 +52,18 @@ namespace Centauri.IoC.Framework {
             }
         }
 
-        internal ControlManager(IoCFramework framework, Type iface) {
+        protected ControlManager(IoCFramework framework, Type iface) {
             Framework = framework;
             Implementations = new List<ControlImplementation>();
             Interface = iface;
+        }
+
+        internal static ControlManager Create(IoCFramework framework, Type iface) {
+            if (iface == typeof(IIoCFramework)) {
+                return new FrameworkControlManager(framework);
+            } else {
+                return new ControlManager(framework, iface);
+            }
         }
     }
 }

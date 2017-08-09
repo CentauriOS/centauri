@@ -178,12 +178,26 @@ namespace Centauri.IoC.Framework {
             return type.CreateTypeInfo().AsType();
         }
 
+        internal object GetSingleton(Type type) {
+            ControlManager manager;
+            if (Controls.ContainsKey(type)) {
+                manager = Controls[type];
+            } else {
+                manager = Controls[type] = ControlManager.Create(this, type);
+            }
+            return manager.Singleton;
+        }
+
+        public T GetSingleton<T>() {
+            return (T) GetSingleton(typeof(T));
+        }
+
         internal object Create(Type type) {
             ControlManager manager;
             if (Controls.ContainsKey(type)) {
                 manager = Controls[type];
             } else {
-                manager = Controls[type] = new ControlManager(this, type);
+                manager = Controls[type] = ControlManager.Create(this, type);
             }
             return manager.Create();
         }
@@ -204,7 +218,7 @@ namespace Centauri.IoC.Framework {
                             if (Controls.ContainsKey(iface)) {
                                 manager = Controls[iface];
                             } else {
-                                manager = Controls[iface] = new ControlManager(this, iface);
+                                manager = Controls[iface] = ControlManager.Create(this, iface);
                             }
                             manager.Add(impl);
                         }
