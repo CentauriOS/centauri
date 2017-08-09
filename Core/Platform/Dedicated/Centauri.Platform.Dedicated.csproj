@@ -15,6 +15,6 @@
     <ProjectReference Include="..\..\Plugins\Welcome\Centauri.Plugins.Welcome.csproj" />
     <ProjectReference Include="..\..\Rendering\Api\Centauri.Rendering.Api.csproj" />
     <ProjectReference Include="..\..\Rendering\DirectFB\Centauri.Rendering.DirectFB.csproj" />
-    <ProjectReference Include="..\..\Ui\Centauri.Rendering.Ui.csproj" />
+    <ProjectReference Include="..\..\IoC\Framework\Centauri.IoC.Framework.csproj" />
   </ItemGroup>
 </Project>
