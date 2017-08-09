@@ -71,6 +71,7 @@ namespace MyProgram {
     // depending on the value on an environmental variable
     [Control]
     class MyObjectB : IMyObject {
+        [ControlWeight]
         static int DetermineWeight() {
             if (Environment.GetEnvironmentalVariable("USE_OBJ_B") == "yes") {
                 return 150;
