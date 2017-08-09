@@ -178,15 +178,18 @@ namespace Centauri.IoC.Framework {
             return type.CreateTypeInfo().AsType();
         }
 
-        public T Create<T>() {
-            Type t = typeof(T);
+        internal object Create(Type type) {
             ControlManager manager;
-            if (Controls.ContainsKey(t)) {
-                manager = Controls[t];
+            if (Controls.ContainsKey(type)) {
+                manager = Controls[type];
             } else {
-                manager = Controls[t] = new ControlManager(this, t);
+                manager = Controls[type] = new ControlManager(this, type);
             }
-            return (T) manager.Create();
+            return manager.Create();
+        }
+
+        public T Create<T>() {
+            return (T) Create(typeof(T));
         }
 
         void LoadAssembly(Assembly asm) {

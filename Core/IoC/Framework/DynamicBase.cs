@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Reflection;
+using Centauri.IoC.Api;
 
 namespace Centauri.IoC.Framework {
     abstract class DynamicBase {
@@ -18,6 +20,12 @@ namespace Centauri.IoC.Framework {
                     throw new NotSupportedException("There are no interface implementations loaded");
                 }
                 Real = Manager.CurrentImpl.Ctor.Invoke(new object[0]);
+                foreach (FieldInfo field in Real.GetType().GetTypeInfo().GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public)) {
+                    InjectAttribute attr = field.GetCustomAttribute<InjectAttribute>();
+                    if (attr != null) {
+                        field.SetValue(Real, Manager.Framework.Create(field.FieldType));
+                    }
+                }
             }
         }
 
