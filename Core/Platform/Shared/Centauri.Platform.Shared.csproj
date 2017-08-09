@@ -17,5 +17,6 @@
     <ProjectReference Include="..\..\Rendering\WinForms\Centauri.Rendering.WinForms.csproj" />
     <ProjectReference Include="..\..\Rendering\OpenGL\Centauri.Rendering.OpenGL.csproj" />
     <ProjectReference Include="..\..\Ui\Centauri.Ui.csproj" />
+    <ProjectReference Include="..\..\IoC\Framework\Centauri.IoC.Framework.csproj" />
   </ItemGroup>
 </Project>

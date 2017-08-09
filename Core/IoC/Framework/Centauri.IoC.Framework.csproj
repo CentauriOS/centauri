@@ -8,4 +8,8 @@
   <ItemGroup>
     <ProjectReference Include="..\Api\Centauri.IoC.Api.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Runtime.Loader" Version="4.3.0" />
+    <PackageReference Include="System.Reflection.Emit" Version="4.3.0" />
+  </ItemGroup>
 </Project>
